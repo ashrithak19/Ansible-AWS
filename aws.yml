@@ -1,0 +1,24 @@
+---
+- name: Install AWS EC2 instance
+  hosts: host1
+  connection: local
+  gather_facts: false
+  vars:
+    keypair: ansible-aws
+    instance_type: t2.micro
+    image: ami-d1315fb1
+    region: us-west-1
+  tasks:
+   - name: Launch EC2 instance
+     ec2:
+       key_name: "{{ keypair }}"
+       group: default
+       instance_type: "{{ instance_type }}"
+       image: "{{ image }}"
+       wait: true
+       region: "{{ region }}}"
+       aws_access_key: AKIAI5OLOXABVFHMZRZA
+       aws_secret_key: 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
+     register: ec2
+   - name: Print all ec2 vairables
+     debug: var=ec2
