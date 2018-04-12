@@ -16,7 +16,7 @@
        instance_type: "{{ instance_type }}"
        image: "{{ image }}"
        wait: true
-       region: "{{ region }}}"
+       region: "{{ region }}"
        aws_access_key: AKIAI5OLOXABVFHMZRZA
        aws_secret_key: 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
      register: ec2
